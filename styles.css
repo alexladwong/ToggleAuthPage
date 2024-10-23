@@ -21,9 +21,10 @@ body {
   height: 750px;
   border-radius: 30px;
   background: linear-gradient(to right, #837114cb, #fff);
-  /* overflow: hidden; */
   box-shadow: 0 0 30px rgba(117, 73, 143, 0.5);
   transition: all 0.4s ease-out;
+  margin: 0px;
+  overflow: hidden;
 }
 
 .container h1 {
@@ -37,7 +38,7 @@ body {
   right: 0;
   width: 50%;
   height: 100%;
-  background: #ffffff;
+  background: #888;
   display: flex;
   align-items: center;
   color: rgb(65, 47, 25);
@@ -45,6 +46,11 @@ body {
   opacity: 8;
   padding: 40px;
   z-index: 1;
+  transition: .6s ease-in-out 1.2s, visibility 0.1s;
+}
+
+.container.active .form-box {
+  right: 50%;
 }
 
 .form-box input {
@@ -107,9 +113,11 @@ form {width: 100%;}
 /* REGISTRATION  */
 .toggle-box {
   position: absolute;
+  background: url(img/3.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
   width: 100%;
   height: 100%;
-  /* background-color: #9d58e2; */
 }
 
 .toggle-box::before{
@@ -117,27 +125,49 @@ form {width: 100%;}
   position: absolute;
   left: -250%;
   width: 300%;
+  background: url(img/2.jpg);
+  background-repeat: no-repeat;
+  background-size: 50%;
   height: 100%;
-  background: linear-gradient(to right, #9d58e2, #96873c);
   border-radius: 150px;
   z-index: 2;
+  transition: 1.8s ease-in-out;
+}
+
+.container.active .toggle-box::before{
+  left: 50%;
 }
 
 .toggle-pannel {
   position: absolute;
   width: 50%;
   height: 100%;
-  /* background: #c44f7cd5; */
   color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 2;
+  transition: .6s ease-in-out;
+}
+
+.toggle-pannel.toggle-left{
+  left: 0;
+  transition-delay: 1.2s;
+}
+
+.container.active .toggle-pannel.toggle-left {
+  left: -50%;
+  transition-delay: .6s;
+}
+.container.active .toggle-pannel.toggle-right {
+  right: 0;
+  transition-delay: 1.2s;
 }
 
 .toggle-pannel.toggle-right{
   right: -50%;
+  transition-delay: .6s;
 }
 
 .toggle-pannel p{
@@ -153,8 +183,8 @@ form {width: 100%;}
 .toggle-pannel .btn{
   width: 160px;
   height: 58px;
-  background: #9d58e2;
-  border: 2px solid #fff;
+  background: seagreen;
+  border: 2px solid #000000;
   box-shadow: none;
   color: #fff;
   padding: 15px 20px;
@@ -168,6 +198,10 @@ form {width: 100%;}
 
 .form-box.register{
   visibility: hidden;
+}
+
+.container.active .form-box.register{
+  visibility: visible;
 }
 
 
